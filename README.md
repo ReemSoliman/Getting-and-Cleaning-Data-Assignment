@@ -4,12 +4,12 @@ This README.md file describes how the assignment scripts are designed and coded.
 
 ## 1-run_analysis.R
 
-- Read the moves data from the training and test folders and row bind them
+* Read the moves data from the training and test folders and row bind them
 >x_train <- read.table("./UCI HAR Dataset//train//X_train.txt", header = FALSE)
 >x_test <- read.table("./UCI HAR Dataset//test//X_test.txt", header = FALSE)
 >functions_train_test <- rbind(x_train, x_test)
 
-- Do the same with activities data and persons data
+* Do the same with activities data and persons data
 >y_train <- read.table("./UCI HAR Dataset//train//y_train.txt", header = FALSE)
 >y_test <- read.table("./UCI HAR Dataset//test//y_test.txt", header = FALSE)
 >activity_train_test <- rbind(y_train, y_test)
@@ -18,4 +18,10 @@ This README.md file describes how the assignment scripts are designed and coded.
 >subject_test <- read.table("./UCI HAR Dataset//test//subject_test.txt", header = FALSE)
 >subject_train_test <- rbind(subject_train, subject_test)
 >names(subject_train_test) <- c("PersonID")
+
+*Read the features txt file and subset the the moves data with mean and standard deviation only
+>features <- read.table("./UCI HAR Dataset//features.txt", header = FALSE)
+names(functions_train_test) <- features[,2]
+
+subsetted <- functions_train_test[grep("std|mean", features[,2], ignore.case = TRUE)]
  
