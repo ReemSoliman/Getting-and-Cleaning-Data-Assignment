@@ -38,4 +38,21 @@ This README.md file describes how the assignment scripts are designed and coded.
 > names(functions_train_test) <- features[,2]
 
 > subsetted <- functions_train_test[grep("std|mean", features[,2], ignore.case = TRUE)]
+
+* Rename the variables names by changing the word "mean" to "Mean", "std" to "StandardDeviation" and removing "()" and "-"
+
+> variableNames <- names(subsetted)
+> variableNames <- gsub("mean","Mean", variableNames)
+> variableNames <- gsub("std","StandardDeviation", variableNames)
+> variableNames <- gsub("\\(\\)|-","", variableNames)
+> names(subsetted) <- variableNames
+
+
+*Read the activities labels txt file and column bind it with movments and persons Ids
+
+> activity_labels <- read.table("./UCI HAR Dataset//activity_labels.txt", header = FALSE)
+
+>activity <- join(activity_train_test, activity_labels)[,2]
+
+> merged <- cbind(subject_train_test, activity, subsetted)
  
