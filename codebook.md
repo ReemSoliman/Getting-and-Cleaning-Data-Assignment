@@ -1,4 +1,5 @@
-"ColNames" | "DataType" | "range" | "mean"
+"ID" |"ColNames" | "DataType" | "range" | "mean"
+|----|---|---|---|---|
 "1" | "X" | "integer" | "1 180" | "Not available"
 "2" | "PersonID" | "integer" | "1 30" | "Not available"
 "3" | "activity" | "factor" | "LAYING/SITTING/STANDING/WALKING/WALKING_DOWNSTAIRS/WALKING_UPSTAIRS" | "Not available"
