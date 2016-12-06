@@ -55,4 +55,14 @@ This README.md file describes how the assignment scripts are designed and coded.
 >activity <- join(activity_train_test, activity_labels)[,2]
 
 > merged <- cbind(subject_train_test, activity, subsetted)
+
+* Group the merged tidy data with PersonId and activity and summerise it.
+
+> by_Subject_Activity <- merged %>% group_by(PersonID, activity)
+grouped_sum <- by_Subject_Activity %>% summarise_all(funs(mean))
+
+
+* Write the tidy summerised data in a cvs file
+
+> write.csv(grouped_sum,"tidy_summerised.csv",sep = "," )
  
