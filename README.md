@@ -90,8 +90,8 @@ This scripts reads the tidy summerised data, gets the column names, classes, and
 
 >                   paste(levels(col), collapse  = "/")
 
->                 else if (class(col) == "integer" || class(col) 
-== "numeric")
+>                 else if (class(col) == "integer" || class(col
+>                          == "numeric")
 
  >                 paste( min(col), max(col), sep = "/")
 
@@ -105,13 +105,13 @@ This scripts reads the tidy summerised data, gets the column names, classes, and
 
    >                else
 > 
-
   >                   "Not available"
-    >                        )
+    
+>                         )
 
     >                )
 
-                
+  >               
   >     write.table(df,"codebook.md", sep = " | " )          
              
 
