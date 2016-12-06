@@ -42,13 +42,17 @@ This README.md file describes how the assignment scripts are designed and coded.
 * Rename the variables names by changing the word "mean" to "Mean", "std" to "StandardDeviation" and removing "()" and "-"
 
 > variableNames <- names(subsetted)
+
 > variableNames <- gsub("mean","Mean", variableNames)
+
 > variableNames <- gsub("std","StandardDeviation", variableNames)
+
 > variableNames <- gsub("\\(\\)|-","", variableNames)
+
 > names(subsetted) <- variableNames
 
 
-*Read the activities labels txt file and column bind it with movments and persons Ids
+* Read the activities labels txt file and column bind it with movments and persons Ids
 
 > activity_labels <- read.table("./UCI HAR Dataset//activity_labels.txt", header = FALSE)
 
