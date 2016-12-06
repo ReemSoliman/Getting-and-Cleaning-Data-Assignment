@@ -5,6 +5,7 @@ This README.md file describes how the assignment scripts are designed and coded.
 ## 1-run_analysis.R
 
 * Read the moves data from the training and test folders and row bind them
+
 > x_train <- read.table("./UCI HAR Dataset//train//X_train.txt", header = FALSE)
 
 > x_test <- read.table("./UCI HAR Dataset//test//X_test.txt", header = FALSE)
@@ -13,6 +14,7 @@ This README.md file describes how the assignment scripts are designed and coded.
 
 
 * Do the same with activities data and persons data
+
 > y_train <- read.table("./UCI HAR Dataset//train//y_train.txt", header = FALSE)
 
 > y_test <- read.table("./UCI HAR Dataset//test//y_test.txt", header = FALSE)
@@ -30,6 +32,7 @@ This README.md file describes how the assignment scripts are designed and coded.
 
 
 * Read the features txt file and subset the the moves data with mean and standard deviation only
+
 > features <- read.table("./UCI HAR Dataset//features.txt", header = FALSE)
 
 > names(functions_train_test) <- features[,2]
