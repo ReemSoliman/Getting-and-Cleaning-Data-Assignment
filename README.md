@@ -69,4 +69,50 @@ grouped_sum <- by_Subject_Activity %>% summarise_all(funs(mean))
 * Write the tidy summerised data in a cvs file
 
 > write.csv(grouped_sum,"tidy_summerised.csv",sep = "," )
+
+
+
+## 2- Codebook.R
+This scripts reads the tidy summerised data, gets the column names, classes, and value ranges and  write this information in  codebook.md.
+
+> summerisedData <- read.csv("tidy_summerised.csv", header = TRUE)
+
+
+> df <- data.frame( row.names= NULL,
+
+>             ColNames = names(summerisedData),
+
+>             DataType = sapply(summerisedData, class),
+
+>             range = sapply(summerisedData, function(col)
+
+>                 if(class(col) == "factor")
+
+>                   paste(levels(col), collapse  = "/")
+
+>                 else if (class(col) == "integer" || class(col) 
+== "numeric")
+
+ >                 paste( min(col), max(col), sep = "/")
+
+ >              ),
+
+ >              mean = sapply(summerisedData, function(col)
+
+  >                 if (class(col) == "numeric")
+
+ >                    mean(col)
+
+   >                else
+> 
+
+  >                   "Not available"
+    >                        )
+
+    >                )
+
+                
+  >     write.table(df,"codebook.md", sep = " | " )          
+             
+
  
