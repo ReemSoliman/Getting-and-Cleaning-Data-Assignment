@@ -38,6 +38,6 @@ merged <- cbind(subject_train_test, activity, subsetted)
 by_Subject_Activity <- merged %>% group_by(PersonID, activity)
 grouped_sum <- by_Subject_Activity %>% summarise_all(funs(mean))
 
-write.csv(grouped_sum,"tidy_summerised.csv",sep = "," )
+write.csv(grouped_sum,"tidy_summerised.csv",sep = "," , row.names = FALSE)
 
 
